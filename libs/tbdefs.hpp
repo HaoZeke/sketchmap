@@ -409,8 +409,8 @@ public:
         static int myrank=-1;
         if (myrank==-1) MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
         if (myrank==0) return os<<data; else return std::cnull;
-#else
-        return os<<data;
+//#else
+//        return os<<data;
 #endif
     }
 

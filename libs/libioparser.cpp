@@ -109,7 +109,7 @@ template <> std::istream& IField<IOMap>::operator<< (std::istream& istr)
     //if any of the members is nonset or nonvalid sets the flags of the IOMap field accordingly
 
     for (; it!=value.end(); ++it)
-    {  if (it->second->flags & iff_nonvalid==iff_nonvalid)
+    {  if ((it->second->flags & iff_nonvalid) == iff_nonvalid)
          { flags&=~iff_nonvalid; istr.setstate(std::ios::failbit);}
      }
 
