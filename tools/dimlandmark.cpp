@@ -84,9 +84,30 @@ int main(int argc, char**argv)
     double neww;
     while (std::cin.good())
     {
-        for (int i=0; i<D; i++) std::cin>>point[i];
-        if (finw) std::cin>>neww; else neww=1.0;  // if requested, reads in weights for the points
-        if (std::cin.good()) { plist.push_back(point); wlist.push_back(neww); }
+        std::cerr << "In while loop, about to read a point...\n";
+        
+        // Reading the point
+        for (int i = 0; i < D; i++) {
+            std::cin >> point[i];
+            std::cerr << "Read point[" << i << "]: " << point[i] << "\n";
+        }
+
+        // If weights are requested, read them; otherwise, set weight to 1.0
+        if (finw) {
+            std::cin >> neww;
+            std::cerr << "Read weight: " << neww << "\n";
+        } else {
+            neww = 1.0;
+            std::cerr << "No weight provided, using default: " << neww << "\n";
+        }
+
+        // Check if the input stream is still good after reading
+        if (std::cin.good()) {
+            plist.push_back(point);
+            wlist.push_back(neww);
+        } else {
+            break;
+        }
     }
     
     // points are read in a vector of vectors (push_back is just too simple!). actually, we want them to be in a NxD matrix
