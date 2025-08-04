@@ -7,8 +7,11 @@ version = "0.1.0"
 
 [tasks]
 build = { cmd = "make" }
+update_lockfiles = { cmd = "uvx pixi-to-conda-lock pixi.lock -o lockfiles" }
 
 [dependencies]
 compilers = ">=1.11.0,<2"
 openblas = ">=0.3.30,<0.4"
 make = ">=4.4.1,<5"
+# Technically only for the update lockfiles
+uv = ">=0.8.4,<0.9"
