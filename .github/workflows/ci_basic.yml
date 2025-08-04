@@ -10,8 +10,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # TODO: Check windows-2022 later, issues linking fmt
-        os: [ubuntu-22.04, macos-12, macos-14]
+        # TODO: Check windows-2022 later
+        os: [ubuntu-22.04, macos-13, macos-14]
     steps:
       - uses: actions/checkout@v4
       - uses: prefix-dev/setup-pixi@v0.8.10

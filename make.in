@@ -21,7 +21,14 @@ MAKEDEPEND=g++ -M $(CXXFLAGS)
 # Lapack includes and linking
 
 ILAPACK=
-LLAPACK=-lopenblas
+LLAPACK=
+
+ifeq ($(shell uname -s),Darwin)
+    LLAPACK=-framework Accelerate
+else
+    LLAPACK=-lopenblas
+endif
+
 
 TBSRC=../libs/
 LDFLAGS=-L$(TBSRC) -ltoolbox $(LLAPACK)
